@@ -1,0 +1,48 @@
+﻿@{
+    ViewData["Title"] = "View Cars";
+}
+<h1>@ViewData["Title"]</h1>
+
+<form method="post">
+    <div class="form-group form-row" >
+        <label class="col-sm-1" for="exampleInputEmail1">Search</label>
+        <input type="text" name="s" class="form-control col-sm-4" placeholder="Enter value to search">
+        <button type="submit" class="btn btn-outline-info col-sm-1">Search</button>
+    </div>
+</form>
+
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th>ID</th>
+            <th>Car Name</th>
+            <th>Car Brand</th>
+            <th>Car Price</th>
+            <th>Image</th>
+            <th>Created At</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (CarViewModel item in Model)
+        {
+        <tr>
+            <td>@item.Id</td>
+            <td>@item.name</td>
+            <td>@item.Brand</td>
+            <td>@item.Price</td>
+            <td>
+                <!--<img alt="Picture"  src="Url.Content("~/CarsPhoto/" + item.Image)" height="50" width="50" class="rounded-circle" />  -->
+                <img src="~/CarsPhoto/@item.Image" alt="@item.Image" width="50" height="50">
+            </td>
+            <td>@item.CreationTime</td>
+            <td>
+                <a href="~/Home/EditCar/@item.Id " class="btn btn-outline-secondary">Edit</a>
+                <a href="~/Home/DeleteCar/@item.Id " class="btn btn-outline-danger">Remove</a>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>
+
+

@@ -1,0 +1,40 @@
+﻿@{
+    ViewData["Title"] = "Edit Car";
+
+}
+@model CarViewModel
+
+<div class="text-center">
+    <h3>Edit Car</h3>
+    <form action="/Home/Patch" method="post">
+        <table>
+            <tr>
+                <td>Car Name:</td>
+                <td>
+                    @Html.EditorFor(c => c.name)
+                </td>
+                <td>
+                    @Html.ValidationMessageFor(c => c.name)
+                </td>
+            </tr>
+            <tr>
+                <td>Car Brand:</td>
+                <td>
+                    @Html.EditorFor(c => c.Brand)
+                </td>
+                <td>
+                    @Html.ValidationMessageFor(c => c.Brand)
+                </td>
+            </tr>
+            <tr>
+                <td>Car Price:</td>
+                <td>@Html.EditorFor(c => c.Price)</td>
+                <td>@Html.ValidationMessageFor(c => c.Price)</td>
+            </tr>
+        </table>
+
+        <input type="submit" value="Edit" />
+    </form>
+
+    
+</div>

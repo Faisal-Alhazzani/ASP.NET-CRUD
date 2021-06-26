@@ -1,0 +1,43 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+
+}
+@model CarViewModel
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <h3>Register New Car</h3>
+    <form action="Home/AddCar" method="post" enctype="multipart/form-data">
+        <table>
+            <tr>
+                <td>Car Name:</td>
+                <td>
+                    @Html.EditorFor(c => c.name)
+                </td>
+                <td>
+                    @Html.ValidationMessageFor(c => c.name)
+                </td>
+            </tr>
+            <tr>
+                <td>Car Brand:</td>
+                <td>
+                    @Html.EditorFor(c => c.Brand)
+                </td>
+                <td>
+                    @Html.ValidationMessageFor(c => c.Brand)
+                </td>
+            </tr>
+            <tr>
+                <td>Car Image:</td>
+                <td>@Html.EditorFor(c => c.Pic)</td>
+            </tr>
+            <tr>
+                <td>Car Price:</td>
+                <td>@Html.EditorFor(c => c.Price)</td>
+                <td>@Html.ValidationMessageFor(c => c.Price)</td>
+            </tr>
+        </table>
+
+        <input type="submit" />
+    </form>
+</div>
